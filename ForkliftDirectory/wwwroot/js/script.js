@@ -139,6 +139,14 @@ function validateForkliftFields(
         numberInput.focus();
         return null;
     }
+  
+    if (!/^\d+(\.\d{1,3})?$/.test(loadCapacityValue)) {
+        alert(
+            "Грузоподъёмность должна быть числом с максимум 3 знаками после запятой."
+        );
+        loadCapacityInput.focus();
+        return null;
+    }
 
     if (!loadCapacityInput.value || loadCapacity <= 0) {
         alert("Введите корректную грузоподъёмность.");
