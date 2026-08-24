@@ -8,7 +8,7 @@ public class Forklift
 
     public string Number { get; set; } = string.Empty;
     
-    [Column(TypeName = "numeric(10,3)")]
+    /*[Column(TypeName = "numeric(10,3)")]*/
     public decimal LoadCapacity { get; set; }
 
     public bool Active { get; set; } = true;
