@@ -1,0 +1,804 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.topBar {
+  margin: 5px;
+  height: 60px;
+  background-color: #cb0000;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+}
+
+.profileButton {
+  background-color: white;
+  color: #333;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 10px 40px;
+
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+  border-radius: 10px;
+}
+
+.profileButton:hover {
+  background-color: #eeeeee;
+}
+
+.pageContainer {
+  display: flex;
+  min-height: calc(100vh - 90px);
+}
+
+.sidebar {
+  width: 150px;
+  padding: 10px 3px;
+  margin: 5px;
+  box-sizing: border-box;
+
+  background-color: #ededed;
+
+  border-radius: 10px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar a {
+  display: block;
+
+  padding: 12px 15px;
+
+  color: #333;
+  text-decoration: none;
+
+  font-size: 16px;
+
+  border-radius: 10px;
+
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar a.active {
+  color: red;
+}
+
+main {
+  flex: 1;
+  background-color: #ededed;
+
+  margin: 5px;
+  padding: 20px;
+
+  border-radius: 10px;
+
+  min-width: 0;
+}
+
+.mainHeader {
+  margin-bottom: 10px;
+}
+
+.mainHeader h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.searchPanel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.searchPanel input {
+  width: 150px;
+  height: 30px;
+
+  padding: 0 15px;
+
+  border: 1px solid #ccc;
+  border-radius: 15px;
+
+  background-color: white;
+
+  font-size: 16px;
+}
+
+.searchPanel input:focus {
+  border-color: #cb0000;
+}
+
+.searchPanel button.searchButton {
+  height: 30px;
+
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #cb0000;
+  color: white;
+
+  font-size: 16px;
+}
+
+.searchIcon {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.searchPanel button.searchButton:hover {
+  background-color: #a80000;
+}
+
+.searchPanel button.resetFilter {
+  height: 30px;
+
+  padding: 0 10px;
+
+  border: none;
+  background: transparent;
+
+  color: #333;
+
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.resetIcon {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  color: red;
+}
+
+.resetText {
+  text-decoration: underline;
+  margin: -5px;
+}
+
+.searchPanel button.resetFilter:hover {
+  color: #cb0000;
+}
+
+.searchPanel button.resetFilter:hover .resetIcon {
+  color: #cb0000;
+}
+
+.actionPanel {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.actionPanel button {
+  height: 30px;
+
+  padding: 0 45px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #cb0000;
+  color: white;
+
+  font-size: 16px;
+}
+
+.actionPanel button:hover {
+  background-color: #a80000;
+}
+
+/* ================================================= */
+/* ДВЕ ТАБЛИЦЫ */
+/* ================================================= */
+
+.tablesContainer {
+  display: flex;
+
+  width: 100%;
+
+  height: calc(100vh - 250px);
+
+  min-height: 300px;
+
+  gap: 10px;
+}
+
+/* Левая таблица */
+
+.forkliftSection {
+  flex: 1.4;
+
+  min-width: 0;
+
+  background-color: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+/* Правая таблица */
+
+.downtimeSection {
+  flex: 1;
+
+  min-width: 0;
+
+  background-color: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+/* ================================================= */
+/* ЗАГОЛОВОК ПРАВОЙ ТАБЛИЦЫ */
+/* ================================================= */
+
+.downtimeHeader {
+  background-color: #ededed;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 4px;
+
+  padding: 5px 8px 7px 8px;
+}
+
+.downtimeHeader h2 {
+  margin: 0 0 5px 0;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #333;
+}
+
+.addDowntimeButton {
+  height: 30px;
+
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #cb0000;
+  color: white;
+
+  font-size: 14px;
+}
+
+.addDowntimeButton:hover {
+  background-color: #a80000;
+}
+
+/* ================================================= */
+/* ОБЁРТКА ТАБЛИЦЫ */
+/* ================================================= */
+
+.tableWrapper {
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+}
+
+/* ================================================= */
+/* ОБЩИЕ СТИЛИ ТАБЛИЦ */
+/* ================================================= */
+
+.dataTable {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  table-layout: fixed;
+
+  font-size: 11px;
+}
+
+/* Заголовок */
+
+.dataTable thead {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 2;
+}
+
+.dataTable th {
+  height: 32px;
+
+  padding: 3px;
+
+  background-color: #f8f8f8;
+
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #dddddd;
+
+  text-align: center;
+
+  vertical-align: middle;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  white-space: normal;
+}
+
+/* Ячейки */
+
+.dataTable td {
+  height: 25px;
+
+  padding: 3px;
+
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+
+  text-align: center;
+
+  vertical-align: middle;
+
+  background-color: #fff;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* ================================================= */
+/* ШИРИНА СТОЛБЦОВ ЛЕВОЙ ТАБЛИЦЫ */
+/* ================================================= */
+
+.forkliftTable th:nth-child(1) {
+  width: 7%;
+}
+
+.forkliftTable th:nth-child(2) {
+  width: 14%;
+}
+
+.forkliftTable th:nth-child(3) {
+  width: 13%;
+}
+
+.forkliftTable th:nth-child(4) {
+  width: 12%;
+}
+
+.forkliftTable th:nth-child(5) {
+  width: 9%;
+}
+
+.forkliftTable th:nth-child(6) {
+  width: 17%;
+}
+
+.forkliftTable th:nth-child(7) {
+  width: 14%;
+}
+
+.forkliftTable th:nth-child(8) {
+  width: 14%;
+}
+
+/* ================================================= */
+/* ШИРИНА СТОЛБЦОВ ПРАВОЙ ТАБЛИЦЫ */
+/* ================================================= */
+
+.downtimeTable th:nth-child(1) {
+  width: 10%;
+}
+
+.downtimeTable th:nth-child(2) {
+  width: 18%;
+}
+
+.downtimeTable th:nth-child(3) {
+  width: 18%;
+}
+
+.downtimeTable th:nth-child(4) {
+  width: 15%;
+}
+
+.downtimeTable th:nth-child(5) {
+  width: 25%;
+}
+
+.downtimeTable th:nth-child(6) {
+  width: 14%;
+}
+
+/* ================================================= */
+/* ВЫБРАННАЯ СТРОКА */
+/* ================================================= */
+
+.forkliftTable tbody tr {
+  cursor: pointer;
+}
+
+.forkliftTable tbody tr:hover td {
+  background-color: #f7eeee;
+}
+
+.forkliftTable tbody tr.selected td {
+  background-color: #ffe3e3;
+}
+
+/* ================================================= */
+/* ИКОНКИ ДЕЙСТВИЙ */
+/* ================================================= */
+
+.actionIcons {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.actionIcon {
+  border: none;
+
+  background: none;
+
+  padding: 0;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.editIcon {
+  color: #777;
+}
+
+.deleteIcon {
+  color: #777;
+}
+
+.actionIcon:hover {
+  color: #cb0000;
+}
+
+/* ================================================= */
+/* CHECKBOX */
+/* ================================================= */
+
+.activeCheck {
+  width: 15px;
+  height: 15px;
+
+  accent-color: #cb0000;
+
+  cursor: pointer;
+}
+
+/* ===================================================== */
+/* МОДАЛЬНОЕ ОКНО */
+/* ===================================================== */
+
+.modal {
+  display: none;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.35);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* Само окно */
+
+.modalContent {
+  width: 700px;
+
+  background-color: #ededed;
+
+  border-radius: 30px;
+
+  padding: 25px 30px 30px;
+
+  box-sizing: border-box;
+}
+
+/* Заголовок */
+
+.modalContent h2 {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  color: #555;
+}
+
+/* Красная линия */
+
+.modalLine {
+  height: 3px;
+
+  background-color: #cb0000;
+
+  margin: 12px 0 20px;
+}
+
+/* Поля дат */
+
+.dateFields {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 20px;
+}
+
+.dateField {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex: 1;
+}
+
+.dateField label {
+  font-size: 18px;
+
+  color: #555;
+
+  white-space: nowrap;
+}
+
+.dateField input {
+  width: 200px;
+
+  height: 40px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 2px solid #bbb;
+
+  border-radius: 20px;
+
+  background-color: white;
+
+  font-size: 15px;
+}
+
+.dateField input:focus {
+  border-color: #cb0000;
+
+  outline: none;
+}
+
+/* Описание */
+
+.descriptionField {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.descriptionField label {
+  font-size: 18px;
+
+  color: #555;
+}
+
+.descriptionField textarea {
+  width: 100%;
+
+  min-height: 200px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  border: 2px solid #bbb;
+
+  border-radius: 25px;
+
+  background-color: white;
+
+  font-family: inherit;
+
+  font-size: 16px;
+}
+
+.descriptionField textarea:focus {
+  border-color: #cb0000;
+
+  outline: none;
+}
+
+/* Кнопки */
+
+.modalButtons {
+  display: flex;
+
+  justify-content: space-around;
+
+  margin-top: 10px;
+}
+
+.modalButtons button {
+  width: 260px;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* Сохранить */
+
+.saveDowntimeButton {
+  background-color: #cb0000;
+
+  color: white;
+}
+
+.saveDowntimeButton:hover {
+  background-color: #a80000;
+}
+
+/* Выход */
+
+.closeDowntimeButton {
+  background-color: #aaa;
+
+  color: black;
+}
+
+.closeDowntimeButton:hover {
+  background-color: #999;
+}

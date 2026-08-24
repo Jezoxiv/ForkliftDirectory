@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Справочник Погрузчиков</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="topBar">
+      <button class="profileButton">Профиль</button>
+    </header>
+
+    <div class="pageContainer">
+      <aside class="sidebar">
+        <nav>
+          <a href="#">Пользователи</a>
+          <a href="#"
+            >Уведомления <br />
+            и напоминания</a
+          >
+          <a href="#">Настройки АИС ОГПА</a>
+
+          <a href="#" class="active">Справочник погрузчиков</a>
+
+          <a href="#">Резервное копирование и восстановление</a>
+          <a href="#">Справочники</a>
+        </nav>
+      </aside>
+
+      <main>
+        <header class="mainHeader">
+          <h1>Справочник погрузчиков</h1>
+        </header>
+
+        <div class="searchPanel">
+          <label for="forkliftSearch"> Номер погрузчика </label>
+
+          <input type="text" id="forkliftSearch" />
+
+          <button class="searchButton">
+            <span class="searchIcon">⌕</span>
+            Искать
+          </button>
+
+          <button class="resetFilter">
+            <span class="resetIcon">×</span>
+            <span class="resetText">Сбросить фильтр</span>
+          </button>
+        </div>
+
+        <div class="actionPanel">
+          <button class="addForkliftButton">Добавить</button>
+        </div>
+
+        <!-- Область с двумя таблицами -->
+        <div class="tablesContainer">
+          <!-- ========================= -->
+          <!-- ЛЕВАЯ ТАБЛИЦА -->
+          <!-- ========================= -->
+
+          <section class="forkliftSection">
+            <div class="tableWrapper">
+              <table class="dataTable forkliftTable">
+                <thead>
+                  <tr>
+                    <th>Код записи</th>
+                    <th>Марка</th>
+                    <th>Номер</th>
+                    <th>Грузоподъем-<br />ность</th>
+                    <th>Активен</th>
+                    <th>Время и дата изменения</th>
+                    <th>Пользователь</th>
+                    <th>Действия</th>
+                  </tr>
+                </thead>
+
+                <tbody id="forkliftTableBody">
+                  <!-- Заполняется JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ========================= -->
+          <!-- ПРАВАЯ ТАБЛИЦА -->
+          <!-- ========================= -->
+
+          <section class="downtimeSection">
+            <div class="downtimeHeader">
+              <h2>
+                Простои по погрузчику
+                <span id="selectedForkliftNumber"> — </span>
+              </h2>
+
+              <button class="addDowntimeButton">Добавить</button>
+            </div>
+
+            <div class="tableWrapper">
+              <table class="dataTable downtimeTable">
+                <thead>
+                  <tr>
+                    <th>Код<br />записи</th>
+                    <th>Начало</th>
+                    <th>Окончание</th>
+                    <th>Время<br />простоя</th>
+                    <th>Причина</th>
+                    <th>Действия</th>
+                  </tr>
+                </thead>
+
+                <tbody id="downtimeTableBody">
+                  <!-- Заполняется JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <!-- ===================================================== -->
+        <!-- МОДАЛЬНОЕ ОКНО ДОБАВЛЕНИЯ ПРОСТОЯ -->
+        <!-- ===================================================== -->
+
+        <div id="downtimeModal" class="modal">
+          <div class="modalContent">
+            <h2>Проблемы с погрузчиком? Опишите</h2>
+
+            <div class="modalLine"></div>
+
+            <!-- Дата начала -->
+            <div class="dateFields">
+              <div class="dateField">
+                <label for="downtimeStart"> Начало </label>
+
+                <input type="datetime-local" id="downtimeStart" />
+              </div>
+
+              <!-- Дата окончания -->
+              <div class="dateField">
+                <label for="downtimeEnd"> Окончание </label>
+
+                <input type="datetime-local" id="downtimeEnd" />
+              </div>
+            </div>
+
+            <!-- Описание -->
+            <div class="descriptionField">
+              <label for="downtimeReason"> Описание инцидента </label>
+
+              <textarea id="downtimeReason" rows="8"></textarea>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="modalButtons">
+              <button
+                type="button"
+                id="saveDowntimeButton"
+                class="saveDowntimeButton"
+              >
+                Сохранить
+              </button>
+
+              <button
+                type="button"
+                id="closeDowntimeButton"
+                class="closeDowntimeButton"
+              >
+                ВЫХОД
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
