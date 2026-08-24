@@ -222,7 +222,7 @@ function renderNewForkliftRow() {
                 class="newForkliftLoadCapacity"
                 placeholder="Грузоподъёмность"
                 min="0"
-                step="0.1"
+                step="0.001"
             >
         </td>
 
@@ -291,7 +291,7 @@ function renderForkliftEditRow(row, forklift) {
                 class="editForkliftLoadCapacity"
                 value="${forklift.loadCapacity}"
                 min="0"
-                step="0.1"
+                step="0.001"
             >
         </td>
 
