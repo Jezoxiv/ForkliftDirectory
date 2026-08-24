@@ -125,7 +125,8 @@ function validateForkliftFields(
     loadCapacityInput
 ) {
     const brand = brandInput.value.trim();
-    const number = numberInput.value.trim();
+    const number = numberInput.value.trim();  
+    const loadCapacityValue = loadCapacityInput.value.trim();
     const loadCapacity = Number(loadCapacityInput.value);
 
     if (!brand) {
