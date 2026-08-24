@@ -126,6 +126,7 @@ function validateForkliftFields(
 ) {
     const brand = brandInput.value.trim();
     const number = numberInput.value.trim();
+    const loadCapacityValue = loadCapacityInput.value.trim();
     const loadCapacity = Number(loadCapacityInput.value);
 
     if (!brand) {
@@ -137,6 +138,14 @@ function validateForkliftFields(
     if (!number) {
         alert("Введите номер погрузчика.");
         numberInput.focus();
+        return null;
+    }
+
+    if (!/^\d+(\.\d{1,3})?$/.test(loadCapacityValue)) {
+        alert(
+            "Грузоподъёмность должна быть числом с максимум 3 знаками после запятой."
+        );
+        loadCapacityInput.focus();
         return null;
     }
 
@@ -222,7 +231,7 @@ function renderNewForkliftRow() {
                 class="newForkliftLoadCapacity"
                 placeholder="Грузоподъёмность"
                 min="0"
-                step="0.1"
+                step="0.001"
             >
         </td>
 
@@ -291,7 +300,7 @@ function renderForkliftEditRow(row, forklift) {
                 class="editForkliftLoadCapacity"
                 value="${forklift.loadCapacity}"
                 min="0"
-                step="0.1"
+                step="0.001"
             >
         </td>
 

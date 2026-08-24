@@ -1,4 +1,6 @@
-﻿namespace ForkliftDirectory.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ForkliftDirectory.Models;
 
 public class Forklift
 {
@@ -8,6 +10,8 @@ public class Forklift
 
     public string Number { get; set; } = string.Empty;
 
+
+    [Column(TypeName = "numeric(10,3)")]
     public decimal LoadCapacity { get; set; }
 
     public bool Active { get; set; } = true;
